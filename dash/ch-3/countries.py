@@ -1,5 +1,12 @@
 import pandas as pd
 import plotly.graph_objects as go
+import dash
+import dash_html_components as html
+import dash_core_components as dcc
+import dash_bootstrap_components as dbc
+from dash.dependencies import Output, Input
+
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 poverty_data = pd.read_csv('data/PovStatsData.csv')
 regions = ['East Asia & Pacific', 'Europe & Central Asia',           'Fragile and conflict affected situations', 'High income', 'IDA countries classified as fragile situations', 'IDA total', 'Latin America & Caribbean', 'Low & middle income', 'Low income', 'Lower middle income', 'Middle East & North Africa', 'Middle income', 'South Asia', 'Sub-Saharan Africa', 'Upper middle income', 'World']
@@ -13,4 +20,5 @@ def plot_countries_by_population(year):
     fig.layout.title=f'Top twenty countries by population - {year}'
     fig.show()
 
-plot_countries_by_population('2016')
+#plot_countries_by_population('2016')
+
